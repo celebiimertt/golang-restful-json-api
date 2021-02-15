@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "productName": "PC",
+      "categoryId": "1",
+      "unitPrice": 3000.99
+    },
+    {
+      "id": 2,
+      "productName": "Mouse",
+      "categoryId": "1",
+      "unitPrice": 40.99
+    },
+    {
+      "id": 3,
+      "productName": "RAM",
+      "categoryId": "1",
+      "unitPrice": 1000.99
+    }
+  ]
+}
