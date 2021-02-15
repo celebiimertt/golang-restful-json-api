@@ -34,7 +34,7 @@ func GetProducts() ([]Product, error) {
 func AddProduct() (Product, error) {
 	//product := Product{10, "MotherBoard", 1, 3000.99}
 	product := Product{ProductName: "MotherBoard2", CategoryId: 1, UnitPrice: 3000.99}
-	//id belirtilmezse otomatik en son id'yi bir arttırarak ekler fakat ^parametreleri nameleri birlikte eklenmesi gerekir.
+	//id belirtilmezse otomatik en son id'yi bir arttırarak ekler fakat parametreleri nameleri birlikte eklenmesi gerekir.
 	productsBytes, err := json.Marshal(product)
 	response, err := http.Post("http://localhost:3000/products", "application/json;charset=utf-8", bytes.NewBuffer(productsBytes))
 	if err != nil {
@@ -42,9 +42,7 @@ func AddProduct() (Product, error) {
 	}
 	defer response.Body.Close()
 	//Verinin eklenip eklenmediğini sistem üzerinden kontrol edilebilir.
-
-	/*
-		Terminal üzerinden de kontrolü ise gönderdiğimiz jsonu tekrar product type'ına dönüştürerek yapabiliriz.*/
+	//Terminal üzerinden de kontrolü ise gönderdiğimiz jsonu tekrar product type'ına dönüştürerek yapabiliriz.
 	bodyBytes, _ := ioutil.ReadAll(response.Body)
 	products2 := Product{}
 	json.Unmarshal(bodyBytes, &products2)
